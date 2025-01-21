@@ -13,6 +13,10 @@ import type { ISurvey } from '@/types/Survey';
 import SelectInput from '@/components/inputs/SelectInput.vue';
 import SurveyPreview from '@/components/preview/SurveyPreview.vue';
 
+defineOptions({
+    name: 'SurveyIndex',
+});
+
 const surveyStore = useSurveyStore();
 
 const surveyOptions = computed<ISelectOption[]>(() =>

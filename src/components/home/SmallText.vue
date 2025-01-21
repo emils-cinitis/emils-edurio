@@ -23,7 +23,8 @@ const columnSize = computed<number>(() =>
         <h5 class="text-center mb-3">{{ item.header }}</h5>
 
         <div v-if="item.subText" class="row">
-            <div v-for="text in item.subText" :class="'col-12 col-md-' + columnSize">
+            <div v-for="(text, index) in item.subText" :class="'col-12 col-md-' + columnSize"
+                :key="'small-text-' + index">
                 {{ text }}
             </div>
         </div>

@@ -9,13 +9,13 @@ interface IProps {
     modelValue: ISurveyQuestionMultipleChoice;
     index: number;
 }
-
-const props = defineProps<IProps>();
+defineProps<IProps>();
 </script>
 
 <template>
     <div class="row justify-content-center">
-        <div v-for="(item, itemIndex) in modelValue.options" class="col-lg-2 col-md-4 col-6 pb-3 pb-lg-0">
+        <div v-for="(item, itemIndex) in modelValue.options" class="col-lg-2 col-md-4 col-6 pb-3 pb-lg-0"
+            :key="'multiple-choice-option-' + itemIndex">
             <TextInput v-model="item.label" :inputKey="'question-' + index + '-item-' + itemIndex"
                 :label="'Option ' + item.number + ' label'" />
         </div>

@@ -13,6 +13,10 @@ import { useToastStore } from '@/stores/toast';
 // Component imports
 import Form from '@/components/suvery/Form.vue';
 
+defineOptions({
+    name: 'SurveyEdit',
+});
+
 const surveyStore = useSurveyStore();
 const toastStore = useToastStore();
 const route = useRoute();

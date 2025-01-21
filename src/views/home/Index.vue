@@ -8,6 +8,10 @@ import type { ISmallText } from '@/types/HomeText';
 // Component imports
 import SmallText from '@/components/home/SmallText.vue';
 
+defineOptions({
+    name: 'HomeIndex',
+});
+
 const listData = reactive<ISmallText[]>([
     {
         header: 'CRUD surveys with question types:',
@@ -32,7 +36,7 @@ const listData = reactive<ISmallText[]>([
             <h4 class="pb-3">Current functionality:</h4>
         </div>
 
-        <SmallText v-for="item in listData" :item="item" />
+        <SmallText v-for="(item, index) in listData" :item="item" :key="'small-text-' + index" />
     </div>
 </template>
 

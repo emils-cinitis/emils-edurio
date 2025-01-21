@@ -1,6 +1,10 @@
 <script setup lang="ts">
 // Component imports
 import SurveyTable from '@/components/suvery/Table.vue';
+
+defineOptions({
+    name: 'SurveyList',
+});
 </script>
 
 <template>

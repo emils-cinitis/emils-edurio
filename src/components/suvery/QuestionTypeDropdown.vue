@@ -5,7 +5,7 @@ import { QuestionType } from '@/types/Survey';
 interface IProps {
     buttonLabel: string;
 }
-const props = defineProps<IProps>();
+defineProps<IProps>();
 
 interface IEmits {
     'itemSelected': [value: string];
@@ -21,7 +21,7 @@ const getQuestionTypeText = (type: string): string => type.replace('_', ' ');
             {{ buttonLabel }}
         </button>
         <ul class="dropdown-menu">
-            <li v-for="(_, value) in QuestionType">
+            <li v-for="(_, value) in QuestionType" :key="'survey-dropdown-option-' + value">
                 <button type="button" class="btn w-100" @click="emit('itemSelected', value)">
                     {{ getQuestionTypeText(value) }}
                 </button>

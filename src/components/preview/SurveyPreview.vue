@@ -43,9 +43,9 @@ onMounted(() => {
             <template v-for="(question, index) in survey.questions">
                 <MultipleChoice v-if="question.type === QuestionType.Multiple_Choice"
                     :question="question as ISurveyQuestionMultipleChoice" :index="index"
-                    v-model="data.responses[index].response as number" />
+                    v-model="data.responses[index].response as number" :key="'question-' + index" />
                 <OpenText v-if="question.type === QuestionType.Open" :question="question as ISurveyQuestionOpen"
-                    :index="index" v-model="data.responses[index].response as string" />
+                    :index="index" v-model="data.responses[index].response as string" :key="'question-' + index" />
             </template>
         </div>
         <div class="col-12">

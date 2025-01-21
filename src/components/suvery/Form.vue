@@ -15,6 +15,10 @@ import QuestionMultipleChoiceInput from '../inputs/QuestionMultipleChoiceInput.v
 import QuestionTypeDropdown from './QuestionTypeDropdown.vue';
 import NumberInput from '../inputs/NumberInput.vue';
 
+defineOptions({
+    name: 'SurveyForm',
+});
+
 interface IProps {
     prefilledData?: ISurvey,
 }
@@ -102,7 +106,7 @@ const addSurveyQuestion = (type: string): void => {
         type: typeValue,
     };
 
-    let question = generateQuestionObject(typeValue, baseValue);
+    const question = generateQuestionObject(typeValue, baseValue);
     if (!question) return;
 
     // Add new question element
@@ -117,7 +121,7 @@ const changeQuestionType = (type: string, index: number): void => {
         type: typeValue,
     };
 
-    let question = generateQuestionObject(typeValue, baseValue);
+    const question = generateQuestionObject(typeValue, baseValue);
     if (!question) return;
 
     // Replace question at index
@@ -146,7 +150,7 @@ const resetQuestion = (): void => {
             </div>
         </div>
 
-        <div v-for="(item, index) in data.questions" class="input-container mb-3">
+        <div v-for="(item, index) in data.questions" class="input-container mb-3" :key="'question-' + index">
             <div class="mb-3 row">
                 <div class="col-md col-12 pb-2 pb-md-0">
                     <TextInput v-model="data.questions[index].label" :inputKey="'question-' + index"

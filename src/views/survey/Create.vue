@@ -5,6 +5,10 @@ import { useRouter } from 'vue-router';
 // Component imports
 import Form from '@/components/suvery/Form.vue';
 
+defineOptions({
+    name: 'SurveyCreate',
+});
+
 const router = useRouter();
 
 const onFormSubmit = (id: string): void => {

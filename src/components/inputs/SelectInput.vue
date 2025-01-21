@@ -8,7 +8,7 @@ interface IProps {
     items: ISelectOption[],
     modelValue: string,
 };
-const props = defineProps<IProps>();
+defineProps<IProps>();
 
 interface IEmits {
     'update:modelValue': [value: string];
@@ -23,7 +23,7 @@ const onUpdate = (event: Event): void => {
 <template>
     <label :for="inputKey" class="form-label">{{ label }}</label>
     <select :id="inputKey" :value="modelValue" @input="onUpdate($event)" class="form-select">
-        <option v-for="item in items" :value="item.id">
+        <option v-for="item in items" :value="item.id" :key="'option-' + item.id">
             {{ item.name }}
         </option>
     </select>

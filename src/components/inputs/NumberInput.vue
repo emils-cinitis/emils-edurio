@@ -5,7 +5,7 @@ interface IProps {
     modelValue: number,
     required?: boolean;
 }
-const props = withDefaults(defineProps<IProps>(), { required: true });
+withDefaults(defineProps<IProps>(), { required: true });
 
 interface IEmits {
     'update:modelValue': [value: number];

@@ -29,7 +29,7 @@ onMounted(() => {
 <template>
   <header class="bg-dark d-flex justify-content-center py-2">
     <ul class="nav nav-pills gap-3">
-      <li v-for="item in navigationItems" class="nav-item">
+      <li v-for="item in navigationItems" :key="item.pathName" class="nav-item">
         <RouterLink :to="{ name: item.pathName }" class="nav-link text-white" exactActiveClass="active">
           {{ item.title }}
         </RouterLink>

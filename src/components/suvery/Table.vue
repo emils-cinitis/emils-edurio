@@ -9,6 +9,10 @@ import { useSurveyStore } from '@/stores/survey';
 // Type imports
 import type { ISurvey } from '@/types/Survey';
 
+defineOptions({
+    name: 'SurveyTable',
+});
+
 const router = useRouter();
 const surveyStore = useSurveyStore();
 
@@ -35,7 +39,7 @@ const deleteSurvey = (id: string): void => {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in surveys" @click="redirectToItem(item.id)">
+                <tr v-for="item in surveys" @click="redirectToItem(item.id)" :key="'survey-table-item-' + item.id">
                     <td>{{ item.name }}</td>
                     <td>{{ item.questions.length }}</td>
                     <td><button class="btn btn-danger" @click.stop="deleteSurvey(item.id)">Delete</button></td>

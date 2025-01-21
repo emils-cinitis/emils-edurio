@@ -6,6 +6,10 @@ import { Toast } from 'bootstrap';
 // Store imports
 import { useToastStore } from '@/stores/toast';
 
+defineOptions({
+    name: 'CommonToast',
+});
+
 const toastStore = useToastStore();
 
 const toast = ref<HTMLElement | null>();
